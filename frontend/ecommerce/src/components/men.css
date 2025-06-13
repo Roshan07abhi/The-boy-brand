@@ -206,7 +206,7 @@
     background: white;
     width: max-content;
     max-width: 1200px;
-    height: 86vh;
+    height: 87vh;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -446,6 +446,7 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+
   }
   .men-grid {
     grid-template-columns: 1fr;
@@ -453,9 +454,11 @@
 
   .product-modal {
     width: 77%;
-    height: 107vh;
+    height: 88vh;
     border-radius: 0;
     padding: 20px;
+    top:50%;
+    background-color: #fefefefc;
   }
 
   .thumbnail {

@@ -269,7 +269,7 @@
   .color-options,
   .size-options {
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .price-section {

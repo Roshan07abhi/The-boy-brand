@@ -32,7 +32,7 @@ img {
 .left-section {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .logo-image {
@@ -78,7 +78,7 @@ img {
 
 .icon-wrapper {
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   display: flex;
   flex-direction: column-reverse;
@@ -464,11 +464,20 @@ img {
   .left-section, .right-section {
     gap: 4px;
   }
-
+  .left-section{
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        width:47%;
+  }
   .right-section {
     position: absolute;
-        top: 10px;
-        left: 51%;
+        top: 17px;
+        left: 53%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
   }
   .search-section {
     width: 100%;
@@ -1113,6 +1122,7 @@ body.modal-open {
     width: 95%;
     height: 90vh;
     padding: 15px;
+    top:50%;
   }
 
   .modal-right {
@@ -1153,6 +1163,6 @@ body.modal-open {
 
   .close-modal {
     right: 20px;
-    top: -6px;
+    top: 10px;
   }
 }
