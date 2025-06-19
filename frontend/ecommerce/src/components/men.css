@@ -6,7 +6,6 @@
 .filters-section {
   width: 280px;
   height: fit-content;
-  border-radius: 4px;
   margin-bottom: 20px;
 }
 
@@ -282,8 +281,8 @@
 }
 
 .scroll-btn {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: transparent;
+  color: black;
   border: none;
   border-radius: 50%;
   width: 24px;
@@ -292,11 +291,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-}
-
-.scroll-btn:hover {
-  background: rgba(0, 0, 0, 0.7);
+  font-size: 25px;
 }
 
 .scroll-btn:disabled {
@@ -353,13 +348,16 @@
 
 @media (max-width: 992px) {
   .men-container {
-    flex-direction: column;
+    flex-direction:column-reverse;
+    padding: 0px;
   }
 
   .filters-section {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
+        position: sticky;
+        bottom: 0px;
+        background-color: white;
+        z-index: 50;
+        width: 99%;
   }
 
   .men-grid {
@@ -378,7 +376,7 @@
   }
 
   .modal-image {
-    width: 100%;
+    width: 96%;
     max-height: 400px;
     object-fit: contain;
   }
@@ -456,7 +454,7 @@
     width: 77%;
     height: 88vh;
     border-radius: 0;
-    padding: 20px;
+    padding: 38px;
     top:50%;
     background-color: #fefefefc;
   }
@@ -482,5 +480,11 @@
 
   .thumbnails-container {
     max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 1000px) {
+  .modal-right {
+    overflow: overlay;
   }
 }

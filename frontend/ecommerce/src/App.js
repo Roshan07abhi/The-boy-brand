@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import Men from "./components/men";
 import Women from "./components/women";
-import Product from "./components/Product"; // Add this import
+import Product from "./components/Product";
 
 function App() {
   const [products, setProducts] = useState([]);

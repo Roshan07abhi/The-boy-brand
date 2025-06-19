@@ -51,20 +51,17 @@ function ProductSection({ title, products }) {
 
   return (
     <section className="product-section">
-      <div className="section-title">
-      <div className="section-header">{title}</div>
-      <span className="title-under">_____</span>
+      <div className="section-title sticky-header">
+        <div className="section-header">{title}</div>
+        <span className="title-under">_____</span>
       </div>
       <div className="product-layout">
         <aside className="sidebar">
           <ul className="category-list">
-            {types.map((type, idx ) => (
-                <li
-              key={type}
-              className={idx === 0 ? "bold-category" : ""}
-            >
-              {type}
-            </li>
+            {types.map((type, idx) => (
+              <li key={type} className={idx === 0 ? "bold-category" : ""}>
+                {type}
+              </li>
             ))}
           </ul>
         </aside>

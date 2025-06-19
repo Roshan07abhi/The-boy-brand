@@ -262,11 +262,8 @@ function Men() {
             className="filters-header" 
             onClick={() => setIsFiltersCollapsed(!isFiltersCollapsed)}
           >
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div>
               <h3>FILTERS</h3>
-              <span style={{ marginLeft: '10px', transition: 'transform 0.3s' }}>
-                {isFiltersCollapsed ? '' : ''}
-              </span>
             </div>
             <button 
               className="clear-all" 
