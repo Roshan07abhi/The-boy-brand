@@ -62,8 +62,7 @@
 }
 
 .product-info1 {
-  padding: 8px;
-  padding-left: 60px;
+  padding-left: 40px;
 }
 
 .product-name {
@@ -255,6 +254,9 @@
   .section-divider {
     margin: 20px 0;
   }
+  .product-info1{
+    padding:0px ;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -296,7 +298,7 @@
 /* Additional utility classes for better spacing on mobile */
 @media screen and (max-width: 480px) {
   .product-info1 {
-    padding: 10px;
+    padding: 0px;
   }
 
   .product-description {

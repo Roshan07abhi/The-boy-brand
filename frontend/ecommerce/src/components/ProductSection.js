@@ -1,5 +1,5 @@
 // ProductSection.js
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import menImg from "../static/polo.png";
 import womenImg from "../static/saree.png";
 import { FaHeart } from "react-icons/fa";
@@ -48,6 +48,23 @@ function ProductCard({ product }) {
 // Main ProductSection component
 function ProductSection({ title, products }) {
   const types = Array.from(new Set(products.map((p) => getType(p.wear))));
+  const [selectedType, setSelectedType] = useState('');
+  const [showAll, setShowAll] = useState(false);
+  const [maxHeight, setMaxHeight] = useState('0px');
+  const gridRef = useRef(null);
+
+  // Determine products to show
+  const displayedProducts = showAll ? products : products.slice(0, 3);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      setMaxHeight(showAll ? `${gridRef.current.scrollHeight}px` : `${gridRef.current.scrollHeight}px`);
+      // Force reflow for transition
+      setTimeout(() => {
+        setMaxHeight(showAll ? `${gridRef.current.scrollHeight}px` : `${gridRef.current.firstChild?.offsetHeight * 3 || 0}px`);
+      }, 10);
+    }
+  }, [showAll, products]);
 
   return (
     <section className="product-section">
@@ -59,19 +76,41 @@ function ProductSection({ title, products }) {
         <aside className="sidebar">
           <ul className="category-list">
             {types.map((type, idx) => (
-              <li key={type} className={idx === 0 ? "bold-category" : ""}>
+              <li 
+                key={type}
+                onClick={() => setSelectedType(type)}
+                style={{ 
+                  fontWeight: selectedType === type ? 'bold' : 'normal',
+                  cursor: 'pointer'
+                }}
+              >
                 {type}
               </li>
             ))}
           </ul>
         </aside>
-        <div className="product-grid">
-          {products.map((product) => (
+        <div
+          className="product-grid transition-grid"
+          ref={gridRef}
+          style={{
+            maxHeight: maxHeight,
+            overflow: 'hidden',
+            transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s',
+            opacity: showAll ? 1 : 0.95,
+          }}
+        >
+          {displayedProducts.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
-      <span className="view-all">View All</span>
+      <span
+        className="view-all"
+        style={{ cursor: 'pointer' }}
+        onClick={() => setShowAll((prev) => !prev)}
+      >
+        {showAll ? 'Show Less' : 'View All'}
+      </span>
     </section>
   );
 }

@@ -8,6 +8,8 @@ import "./App.css";
 import Men from "./components/men";
 import Women from "./components/women";
 import Product from "./components/Product";
+import Login from "./components/login";
+import Profile from "./components/Profile";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -44,7 +46,10 @@ function App() {
         />
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
-        <Route path="/product/:id" element={<Product />} /> {/* Add this route */}
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/login" element={<Login />} />
+        
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

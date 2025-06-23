@@ -1,5 +1,5 @@
 // Header.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "/Users/abist/Downloads/work1/frontend/ecommerce/src/static/logo.png";
 import { CiHeart } from "react-icons/ci";
@@ -10,6 +10,14 @@ import { Link } from "react-router-dom";
 
 function Header() {
   const location = useLocation();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Update user whenever route changes
+    const userData = localStorage.getItem("user");
+    if (userData) setUser(JSON.parse(userData));
+    else setUser(null);
+  }, [location]);
 
   return (
     <header className="header">
@@ -41,17 +49,28 @@ function Header() {
         <input type="text" placeholder="Search" className="search-input" />
       </div>
       <div className="right-section">
-        <div className="icon-wrapper">
-          <span className="icon">Profile</span>
-          <FaUserCircle />
+        {user ? (
+          <div className="icon-wrapper" title={user.name}>
+            <Link to="/profile">
+              <FaUserCircle />
+            </Link>
+          </div>
+        ) : (
+          <div className="login">
+            <Link to="/login">Sign In</Link>
+            <span> / </span>
+            <Link to="/login">Sign Up</Link>  
+          </div>
+        )}
+        <div className="icon-wrapper1">
+          <Link to="/wishlist">
+            <CiHeart />
+          </Link>   
         </div>
-        <div className="icon-wrapper">
-          <span className="icon">Whishlist</span>
-          <CiHeart />
-        </div>
-        <div className="icon-wrapper">
-          <span className="icon">Bag</span>
-          <BsBag />
+        <div className="icon-wrapper2">
+          <Link to="/cart">
+            <BsBag />
+          </Link>
         </div>
       </div>
     </header>

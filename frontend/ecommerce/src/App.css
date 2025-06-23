@@ -78,11 +78,19 @@ img {
 
 .icon-wrapper {
   position: relative;
-  font-size: 14px;
+  font-size: 20px;
   cursor: pointer;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+}
+.icon-wrapper2 {
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+  top:-1px;
+}
+.icon-wrapper1 {
+  position: relative;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .circle {
@@ -324,6 +332,10 @@ img {
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .product-image-wrapper:hover .quickview {
@@ -432,8 +444,8 @@ img {
   }
   .right-section{
         position: relative;
-    top: -82px;
-    left: 74%;
+    top: -78px;
+    left: 86%;
   }
   .search-section {
     width: 100%;
@@ -474,13 +486,14 @@ img {
   }
   .right-section {
     position: absolute;
-        top: 17px;
-        left: 53%;
+        top: 24px;
+        left: 73%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
   }
+
   .search-section {
     width: 100%;
     margin: 8px 0 0 0;
@@ -1202,4 +1215,141 @@ body.modal-open {
     left: 70%;
     right: 3%;
   }
+}
+
+/* Add to your CSS file */
+.transition-grid {
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.login-container {
+  max-width: 350px;
+  margin: 60px auto;
+  padding: 32px 28px 24px 28px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container h2 {
+  margin-bottom: 24px;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.login-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.login-container input:focus {
+  border: 1.5px solid #ff4d4f;
+}
+
+.login-container button[type="submit"] {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.login-container button[type="submit"]:hover {
+  background: #d9363e;
+}
+
+.login-container div[style*="color: red"] {
+  margin-bottom: 10px;
+  font-size: 0.97rem;
+}
+
+.login-container span {
+  font-size: 0.97rem;
+}
+
+.login-container button[type="button"] {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 4px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.login-container button[type="button"]:hover {
+  text-decoration: underline;
+}
+
+.profile-container {
+  max-width: 350px;
+  margin: 60px auto;
+  padding: 32px 28px 24px 28px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.profile-email {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.profile-logout-btn {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.login{
+  font-size: 14px;
 }
