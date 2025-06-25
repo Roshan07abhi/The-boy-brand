@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 app = Flask(__name__)
 cors=CORS(app)
@@ -53,6 +53,33 @@ def get_product_by_id(id):
     
     return jsonify(product)
 
+users = {
+    "test@gmail.com": {"password": "123456", "name": "Test User"},
+    "test1@gmail.com": {"password": "1234567", "name": "Test User2"}
+}
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+    user = users.get(email)
+    if user and user["password"] == password:
+        return jsonify({"success": True, "name": user["name"], "email": email})
+    return jsonify({"success": False, "error": "Invalid credentials"}), 401
+
+@app.route('/api/signup', methods=['POST'])
+def signup():
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+    name = data.get("name")
+    if not email or not password or not name:
+        return jsonify({"success": False, "error": "Missing fields"}), 400
+    if email in users:
+        return jsonify({"success": False, "error": "User already exists"}), 409
+    users[email] = {"password": password, "name": name}
+    return jsonify({"success": True, "name": name, "email": email})
 
 if __name__ == "__main__":
     app.run(debug=True)
