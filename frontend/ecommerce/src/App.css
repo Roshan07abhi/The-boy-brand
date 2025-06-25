@@ -1181,6 +1181,9 @@ body.modal-open {
     right: 20px;
     top: 10px;
   }
+  .product-pricing{
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 768px) {
